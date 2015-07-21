@@ -10,33 +10,127 @@
 // -If there is a value, and its numeric value is less than 10000, call a function that passes in the user-entered value as an argument, and the name of the function that multiplies by 5. Write the result of the calculation into the HTML document
 
 
-function divideBy10 (number) {
+function divideBy10(number) {
   var quotient = number / 10;
   return quotient;
 }
 
-function multiplyBy5 (number) {
+function multiplyBy5(number) {
   var product = number * 5;
   return product;
 }
 
-function checkInputField () {
-  var calculationResultHTML = document.getElementById("calculation-result");
+function checkInputField() {
   var inputField = document.getElementsByName("inputNumber");
   inputField = inputField[0].value;
-  var testInput = parseInt(inputField);
-  if (isNaN(testInput)) {
-    alert("Please enter a numeric value.")
-  } else if (inputField > 10000) {
-    var output = divideBy10(inputField);
-    calculationResultHTML.innerHTML = "<p>Your number was divided by 10</p><p>the result was:</p>" + output;
-  } else if (inputField < 10000) {
-    var output = multiplyBy5(inputField);
-    calculationResultHTML.innerHTML = "<p>Your number was multiplied by 5</p><p>the result was:</p>" + output;
-  } else {
-    calculationResultHTML.innerHTML = "Your number was 10000";
+  inputField = parseInt(inputField);
+  var calculationResultHTML = document.getElementById("calculation-result");
+  switch (true) {
+    case (isNaN(inputField)):
+      alert("Please enter a numeric value.");
+      break;
+    case (inputField > 10000):
+      var output = divideBy10(inputField);
+      calculationResultHTML.innerHTML = "<p>Your number was divided by 10</p><p>the result was:</p>" + output;
+      break;
+    case (inputField < 10000):
+      var output = multiplyBy5(inputField);
+      calculationResultHTML.innerHTML = "<p>Your number was multiplied by 5</p><p>the result was:</p>" + output;
+      break;
   }
 }
 
 var button = document.getElementsByName("calculate").item(0);
 button.onclick = checkInputField;
+
+
+
+
+
+
+//////////////////////////////////////////////////////
+/////////////// ALTERNATE SOLUTION 1: ///////////////
+////////////////////////////////////////////////////
+
+
+// function divideBy10(number) {
+//   var quotient = number / 10;
+//   return quotient;
+// }
+
+// function multiplyBy5(number) {
+//   var product = number * 5;
+//   return product;
+// }
+
+// function isInputValid(input) {
+//   var testInput = parseInt(input);
+//   if (!isNaN(testInput)) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// function checkInputField() {
+//   var inputField = document.getElementsByName("inputNumber");
+//   inputField = inputField[0].value;
+//   var inputValidity = isInputValid(inputField);
+//   if (!inputValidity) {
+//     alert("Please enter a numeric value.");
+//     return;
+//   }
+//   var calculationResultHTML = document.getElementById("calculation-result");
+//   if (inputField < 10000) {
+//     var output = multiplyBy5(inputField);
+//     calculationResultHTML.innerHTML = "<p>Your number was multiplied by 5</p><p>the result was:</p>" + output;
+//   } else {
+//     var output = divideBy10(inputField);
+//     calculationResultHTML.innerHTML = "<p>Your number was divided by 10</p><p>the result was:</p>" + output;
+//   }
+// }
+
+// var button = document.getElementsByName("calculate").item(0);
+// button.onclick = checkInputField;
+
+
+
+
+
+
+//////////////////////////////////////////////////////
+/////////////// ALTERNATE SOLUTION 2: ///////////////
+////////////////////////////////////////////////////
+
+
+// function divideBy10(number) {
+//   var quotient = number / 10;
+//   return quotient;
+// }
+
+// function multiplyBy5(number) {
+//   var product = number * 5;
+//   return product;
+// }
+
+
+// function checkInputField() {
+//   var inputField = document.getElementsByName("inputNumber");
+//   inputField = inputField[0].value;
+//   var testInput = parseInt(inputField);
+//   var calculationResultHTML = document.getElementById("calculation-result");
+//   if (isNaN(testInput)) {
+//     alert("Please enter a numeric value.")
+//   } else if (inputField > 10000) {
+//     var output = divideBy10(inputField);
+//     calculationResultHTML.innerHTML = "<p>Your number was divided by 10</p><p>the result was:</p>" + output;
+//   } else if (inputField < 10000) {
+//     var output = multiplyBy5(inputField);
+//     calculationResultHTML.innerHTML = "<p>Your number was multiplied by 5</p><p>the result was:</p>" + output;
+//   } else {
+//     calculationResultHTML.innerHTML = "Your number was 10000";
+//   }
+// }
+
+// var button = document.getElementsByName("calculate").item(0);
+// button.onclick = checkInputField;
